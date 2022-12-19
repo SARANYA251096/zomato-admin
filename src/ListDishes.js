@@ -67,12 +67,16 @@ function ListDishes() {
                       <td>
                         <img src={dish.url} height="50" width="50" />
                       </td>
-                       <td>{dish.Price}</td>
+                      <td>{dish.Price}</td>
                       <td>{dish.Type}</td>
                       <td>{dish.Ingredients}</td>
                       <td>
-                      <Link to={`/portal/list-dishes/${dish.rId}`} className="btn btn-sm btn-danger">Delete Dish</Link>
-
+                        <Link
+                          to={`/portal/list-dishes/${dish.rId}`}
+                          className="btn btn-sm btn-danger"
+                        >
+                          Delete Dish
+                        </Link>
                       </td>
                     </tr>
                   );
