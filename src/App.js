@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import logo from "./logo.svg";
+// import './App.css';
+import "./sb-admin-2.min.css";
+import Login from "./Login";
+import Portal from "./Portal";
+import ListRestaurant from "./ListRestaurant";
+import CreateRestaurant from "./CreateRestaurant";
+import ListDishes from "./ListDishes";
+import CreateDishes from "./CreateDishes";
 
 function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/portal" element={<Portal />}>
+          <Route path="/portal/list-restaurants" element={<ListRestaurant />} />
+          <Route path="/portal/create-restaurants" element={<CreateRestaurant />} />
+          <Route path="/portal/list-dishes/:rId" element={<ListDishes />} />
+          <Route path="/portal/create-dishes/:rId" element={<CreateDishes />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
